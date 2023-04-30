@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+<head>
+    <script>
+        function autoType(element, text, delay) {
+          var i = 0;
+          var interval = setInterval(function () {
+            element.textContent += text.charAt(i);
+            i++;
+            if (i > text.length) {
+              clearInterval(interval);
+              setTimeout(function () {
+                element.textContent = '';
+                autoType(element, text, delay);
+              }, 1000);
+            }
+          }, delay);
+        }
+    
+        window.addEventListener('load', function () {
+          var element = document.querySelector('.hero h1');
+          autoType(element, 'Welcome to Cyber Octet', 100);
+        });
+      </script>
+      <style>
+        /* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.phone:before {
+    content: "\f095";
+    font-family: "FontAwesome";
+    margin-right: 5px;
+    font-size:small;
+  }
+  
+img {
+    max-width: 110%;
+    height: auto;
+}
+header .logo {
+    width: 150px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.center {
+    text-align: center;
+  }
+button:hover {
+    background-color: #666;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.logo {
+    width: 100px;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    font-size: 18px;
+}
+
+.cta {
+    margin-left: auto;
+}
+
+/* Hero section styles */
+.hero {
+    height: 500px;
+    background-image: url('hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    display: inline-block;
+    height: 80px;
+ overflow: hidden;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+    /* text-align : center; */
+  }
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+/* About section styles */
+.about {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.about p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* Services section styles */
+.services {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.services li {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+      </style>
+</head>
+{% block body %}
+<div id="main">
+    <section class="hero">
+      <div class="container">
+        <h1></h1>
+        <h3>Securing Your Digital World with Ethical Expertise</h3>
+        <br>
+        <p>Cyberoctect is an Ethical Hacking and Cyber Security company in Ahmedabad </p>
+      </div>
+    </section>
+
+  </div>
+{%endblock body%}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+<head>
+<script>
+    const foundersSection = document.querySelector('.founders');
+
+    function fadeIn(element) {
+        let opacity = 0;
+        let timer = setInterval(function () {
+            if (opacity >= 1) {
+                clearInterval(timer);
+            }
+            element.style.opacity = opacity;
+            opacity += 0.1;
+        }, 50);
+    }
+
+    function isElementInViewport(element) {
+        let rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    window.addEventListener('scroll', function (event) {
+        if (isElementInViewport(foundersSection)) {
+            fadeIn(foundersSection);
+            window.removeEventListener('scroll', event);
+        }
+    }, false);
+
+</script>
+<style>
+    .founders {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .founder {
+        text-align: center;
+        margin: 20px;
+        max-width: 300px;
+    }
+
+    .founder img {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .founder h3 {
+        font-size: 24px;
+        margin-top: 20px;
+    }
+
+    .founder p {
+        font-size: 18px;
+        margin-top: 10px;
+        line-height: 1.5;
+    }
+</style>
+</head>
+{%block body %}
+<div id="main">
+    <div class="founders" style="display: flex; margin: 2%;">
+        <div class="founder" style="border: 2px solid black; border-radius: 3px;">
+            <img src="{{url_for('static', filename='jainik.jpeg')}}" alt="Founder 1" style="width: 300px; height: 300px;margin-left: 20%; margin-top: 10%;">
+            <br><br>
+            <h3 style="margin-left: 35%;">Jainik Bakshi</h3>
+            
+            <p>I am currently pursuing my B.Tech from Nirma University(2020-2024).
+                My interests include AI and ML and Web Development. Additionally,
+                I enjoy learning about finance and have an aptitude for it.</p>
+        </div>
+        <div class="founder" style="border: 2px solid black; border-radius: 3px; margin-left: 5px;">
+            <img src="{{url_for('static', filename='maitri.jpeg')}}" alt="Founder 2" style="width: 300px; height: 300px; margin-left: 20%; margin-top: 10%;">
+            <br><br>
+            <h3 style="margin-left: 35%;">Maitri Patel</h3>
+            
+            <p>I am currently pursuing my B.Tech from Nirma University(2020-2024). My interests include AI and ML and
+                Web Development. Additionally, I enjoy learning about finance and have an aptitude for it.</p>
+        </div>
+        <div class="founder" style="border: 2px solid black; border-radius: 3px; margin-left: 5px;">
+            <img src="{{url_for('static', filename='himanshu.jpeg')}}" alt="Founder 3" style="width: 300px; height: 300px;margin-left: 20%; margin-top: 10%;">
+            <br><br>
+            <h3 style="margin-left: 35%;">Himanshu Vadher</h3>
+            <p style="margin-left: 2px;">I am currently pursuing my B.Tech from Nirma University(2020-2024). My interests include AI and ML and
+                Web Development. Additionally, I enjoy learning about finance and have an aptitude for it.</p>
+        </div>
+    </div>
+
+</div>
+<br><br>
+{%endblock body%}

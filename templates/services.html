@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+<head>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			padding: 20px;
+			background-color: #f9f9f9;
+		}
+
+		h1 {
+			font-size: 28px;
+			font-weight: bold;
+			margin-bottom: 30px;
+			color: #007bff;
+			text-align: center;
+		}
+
+		form {
+			margin-bottom: 30px;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			color: #333;
+			font-weight: bold;
+		}
+
+		input[type="url"],
+		input[type="file"],
+		input[type="number"] {
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		button[type="submit"] {
+			padding: 10px 20px;
+			font-size: 16px;
+			font-weight: bold;
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease-in-out;
+		}
+
+		button[type="submit"]:hover {
+			background-color: #0069d9;
+		}
+	</style>
+</head>
+{%block body%}
+<body>
+<h1 style="margin-left: 45%;">Input Form</h1>
+<br><br>
+	<form method="POST" action="{{url_for('forms')}}">
+		<label for="url-input" style="margin-left: 40%; margin-top: 10%;">Enter a URL:</label>
+		<input type="url" id="url-input" name="url-input">
+		<br><br>
+        <label style="margin-left: 40%; margin-top: 10%;">Enter number of sites to crawl:</label>
+		<input type="number" name="Input" required>
+		<br><br>
+		<label for="file-input" style="margin-left: 40%; margin-top: 10%;">Select a file from your desktop:</label>
+		<input type="file" id="file-input" name="file-input">
+		<br><br>
+		<button type="submit" style="margin-left: 40%; margin-top: 10%;">Submit</button>
+	</form>
+</body>
+<br><br>
+{%endblock body%}
