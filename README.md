@@ -12,6 +12,15 @@ We encourage interested developers and researchers to explore our codebase and d
 Our project aims to contribute to the advancement of the field of cybersecurity and provide valuable insights for policy-makers and law enforcement agencies working to 
 combat cyberterrorism and extremism.
 
+## Flow of the project
+
+1. Ahmia.py scrapes all the onion websites for a particular keyword which is chosen randomly by the computer.
+2. If a user wants to access data of "N" files, N is given as an input to the tor1.py file which scrapes the data out of first "N" Onion files.
+3. Run text.py to filter all the html tags and get the raw data.
+4. app.py is a flask based GUI.
+
+It is still not connected whole with the backend, but we plan to do it in near future.
+
 ## Our GUI 
 
 ### Home Page
